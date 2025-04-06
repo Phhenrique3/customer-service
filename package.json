@@ -1,0 +1,23 @@
+{
+  "name": "projeto-nodejs-rest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phhenrique3/customer-service.git"
+  },
+  "author": "Pedro Nunes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Phhenrique3/customer-service/issues"
+  },
+  "homepage": "https://github.com/Phhenrique3/customer-service#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
