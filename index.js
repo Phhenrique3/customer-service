@@ -1,13 +1,7 @@
-const express = require("express");
+const customExpress = require("./config/customExpress.js");
 
-const app = express();
+const app = customExpress();
 
-const port = 3000;
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
-
-app.get("/teste", (req, res) => {
-  res.send("Hello, word!");
+app.listen(3000, () => {
+  console.log(`Server is running on http://localhost:3000`);
 });

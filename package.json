@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Phhenrique3/customer-service#readme",
   "description": "",
   "dependencies": {
+    "body-parser": "^2.2.0",
+    "consign": "^0.1.6",
     "express": "^5.1.0"
   }
 }
