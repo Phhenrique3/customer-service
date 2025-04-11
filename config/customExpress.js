@@ -2,7 +2,7 @@
 const express = require("express");
 
 const consign = require("consign"); // Importa o módulo "consign", que é usado para carregar automaticamente arquivos e módulos em uma aplicação.
-const conexao = require("../infraestrutura/conexao.js").default;
+const conexao = require("../infraestrutura/conexao.js");
 
 module.exports = () => {
   // Exporta uma função que configura e retorna uma instância do aplicativo Express.
