@@ -1,10 +1,17 @@
+const Atendimento = require("../models/atendimentos");
+
+
+
 module.exports = (app) => {
-  app.get("/atendimento", (req, res) => {
+  app.get("/atendimentos", (req, res) => {
     res.send("Bem-vindo no atendimento !");
   });
 
-  app.post("/atendimento", (req, res) => {
-    console.log(req.body);
-    res.send("você está no atendimento");
+  app.post("/atendimentos", (req, res) => {
+    const atendimento = req.body;
+
+    Atendimento.adiciona(atendimento)
+    res.send("agendado com sucesso ");
   });
 };
+
