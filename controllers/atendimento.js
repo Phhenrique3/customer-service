@@ -11,8 +11,7 @@ module.exports = (app) => {
   app.post("/atendimentos", (req, res) => {
     const atendimento = req.body;
 
-    Atendimento.adiciona(atendimento)
-    res.send(` Atendimento ${atendimento.cliente} adicionado com sucesso!`);
+    Atendimento.adiciona(atendimento, res )
     console.log(atendimento);
     });
 };
