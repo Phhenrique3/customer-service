@@ -38,18 +38,20 @@ Estrutura do Projeto
 O projeto foi organizado da seguinte forma:
 
     .
-
+.
 ├── config/
-│ └── customExpress.js # Configuração do servidor Express
+│   └── customExpress.js  # Configuração do servidor Express
 ├── controllers/
-│ └── atendimento.js # Controlador para o recurso "atendimento"
+│   └── atendimento.js    # Controlador para o recurso "atendimento"
 ├── infraestrutura/
-│ ├── conexao.js # Configuração da conexão com o banco de dados
-│ └── tables.js # Criação e inicialização das tabelas no banco de dados
-├── [index.js](http://_vscodecontentref_/1) # Ponto de entrada da aplicação
-├── [package.json](http://_vscodecontentref_/2) # Configurações do projeto e dependências
-├── .gitignore # Arquivos ignorados pelo Git
-└── [README.md](http://_vscodecontentref_/3)  
+│   ├── conexao.js        # Configuração da conexão com o banco de dados
+│   └── tables.js         # Criação e inicialização das tabelas no banco de dados
+├── [index.js](http://_vscodecontentref_/1)              # Ponto de entrada da aplicação
+├── [package.json](http://_vscodecontentref_/2)          # Configurações do projeto e dependências
+├── .gitignore            # Arquivos ignorados pelo Git
+└── [README.md](http://_vscodecontentref_/3)             # Documentação do projeto
+
+
  Endpoints da API
 GET /atendimento
 Retorna uma mensagem de boas-vindas.
