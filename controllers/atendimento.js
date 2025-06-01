@@ -10,7 +10,7 @@ module.exports = (app) => {
   app.get("/atendimentos/:id", (req, res) => {
     const id = parseInt(req.params.id);
     atendimentos.buscaPorId(id, res);
-    console.log("Buscando atendimento com id: " + id);
+    console.log("Buscando atendimentos com id: " + id)
   });
 
   app.post("/atendimentos", (req, res) => {
