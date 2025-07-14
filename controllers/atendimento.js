@@ -1,4 +1,4 @@
-const Atendimento = require("../models/atendimentos");
+const atendimentos = require("../models/atendimentos");
 
 module.exports = (app) => {
   app.get("/atendimentos", (req, res) => {
@@ -13,10 +13,10 @@ module.exports = (app) => {
   });
 
   app.post("/atendimentos", (req, res) => {
-    const atendimento = req.body;
+    const atendimentos = req.body;
 
-    Atendimento.adiciona(atendimento, res);
-    console.log(atendimento);
+    atendimentos.adiciona(atendimentos, res);
+    console.log(atendimentos);
   });
 
   app.patch("/atendimentos/:id", (req, res) => {

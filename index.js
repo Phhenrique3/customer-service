@@ -1,18 +1,28 @@
-const customExpress = require("./config/customExpress.js");
-const conexao = require("./infraestrutura/conexao.js");
-const Tabelas = require("./infraestrutura/tables.js");
+const express = require('express')
+const cors = require('cors')
+const bodyParser = require('body-parser')
+const conexao = require('./infraestrutura/conexao')
+const Tabelas = require('./infraestrutura/tables')
+
+const app = express()
+const port = 3000
+
+app.use(cors())
+app.use(bodyParser.json())
 
 conexao.connect((erro) => {
   if (erro) {
-    console.error("Erro ao conectar ao banco de dados:", erro);
+    console.error('Erro ao conectar no banco:', erro)
   } else {
-    console.log("Conectado com sucesso ao banco de dados!");
+    console.log('Conectado ao banco MySQL')
+    Tabelas.init(conexao)
+
+    
+    const cadastroCliente = require('./controllers/cadastroCliente')
+    const servico = require('./controllers/servico')
+    cadastroCliente(app)
+    servico(app)
   }
+})
 
-  Tabelas.init(conexao);
-  const app = customExpress();
-
-  app.listen(3000, () => {
-    console.log(`Server is running on http://localhost:3000`);
-  });
-});
+app.listen(port, () => console.log(`Servidor rodando na porta ${port}`))
