@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Phhenrique3/customer-service#readme",
   "description": "",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "consign": "^0.1.6",
     "cors": "^2.8.5",
