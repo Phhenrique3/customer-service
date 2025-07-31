@@ -13,9 +13,9 @@ module.exports = (app) => {
   });
 
   app.post("/atendimentos", (req, res) => {
-    const atendimentos = req.body;
+    const dados = req.body;
 
-    atendimentos.adiciona(atendimentos, res);
+    atendimentos.adiciona(dados, res);
     console.log(atendimentos);
   });
 

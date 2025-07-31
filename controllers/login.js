@@ -1,5 +1,5 @@
 const LoginCliente = require("../models/loginCliente");
-const bcrypt = require('bcrypt'); // <<< IMPORTA O BCRYPT AQUI
+const bcrypt = require("bcrypt"); // <<< IMPORTA O BCRYPT AQUI
 
 module.exports = (app) => {
   app.post("/api/clientes/login", async (req, res) => {

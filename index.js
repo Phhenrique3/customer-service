@@ -3,6 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const conexao = require('./infraestrutura/conexao')  // <<< Importa aqui
 const Tabelas = require('./infraestrutura/tables')
+const atendimento = require('./controllers/atendimento')
 
 const app = express()
 const port = 3000
@@ -17,10 +18,12 @@ async function start() {
     const cadastroCliente = require('./controllers/cadastroCliente');
     const servico = require('./controllers/servico');
     const login = require('./controllers/login');
+    const atendimento = require ('./controllers/atendimento')
 
     cadastroCliente(app);
     servico(app);
     login(app);
+    atendimento(app)
 
     app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
   } catch (error) {
