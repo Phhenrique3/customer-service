@@ -18,12 +18,14 @@ async function start() {
     const cadastroCliente = require('./controllers/cadastroCliente');
     const servico = require('./controllers/servico');
     const login = require('./controllers/login');
-    const atendimento = require ('./controllers/atendimento')
+    const atendimento = require ('./controllers/atendimento');
+    const pets = require ('./controllers/pets')
 
     cadastroCliente(app);
     servico(app);
     login(app);
     atendimento(app)
+    pets(app)
 
     app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
   } catch (error) {
