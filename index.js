@@ -3,7 +3,6 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const conexao = require('./infraestrutura/conexao')  // <<< Importa aqui
 const Tabelas = require('./infraestrutura/tables')
-const atendimento = require('./controllers/atendimento')
 
 const app = express()
 const port = 3000

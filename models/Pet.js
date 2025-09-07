@@ -1,4 +1,4 @@
-const conexao = require('../infraestrutura/conexao.js');
+const conexao = require("../infraestrutura/conexao.js");
 
 class Pet {
   constructor({ nome, raca, especie, cliente_id }) {
@@ -8,14 +8,13 @@ class Pet {
     this.cliente_id = cliente_id;
   }
 
-  static async buscaPorCliente(clienteId, res) {
+  static async listaPorCliente(cliente_id) {
     try {
-      const query = 'SELECT id, nome, especie, raca FROM pets WHERE cliente_id = ?';
-      const [resultados] = await conexao.query(query, [clienteId]);
-      res.status(200).json(resultados);
+      const sql = "SELECT id, nome FROM Pets WHERE cliente_id = ?";
+      const [rows] = await conexao.query(sql, [cliente_id]);
+      return rows;
     } catch (erro) {
-      console.error('ERRO AO BUSCAR PETS:', erro);
-      res.status(400).json({ erro: 'Erro ao buscar pets no banco de dados.' });
+      throw erro;
     }
   }
 }
