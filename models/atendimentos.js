@@ -5,11 +5,11 @@ class Atendimento {
   // Adiciona atendimento (versão ajustada)
   async adiciona(novoAtendimento, res) {
     // 1. Desestruturar os campos recebidos do front-end
-    const { cliente_id, pet_id, data, observacoes, servico, status } =
+    const { cliente_id, pet_id, data, observacoes,  status } =
       novoAtendimento;
 
     // 2. Validação dos campos obrigatórios
-    if (!cliente_id || !pet_id || !data || !servico || !status) {
+    if (!cliente_id || !pet_id || !data ||  !status) {
       return res
         .status(400)
         .json({ erro: "Campos obrigatórios não foram preenchidos." });
@@ -25,8 +25,7 @@ class Atendimento {
     const atendimentoParaSalvar = {
       cliente_id: Number(cliente_id), // Garante que seja um número
       pet_id: Number(pet_id), // Garante que seja um número
-      data_agendamento: dataAgendamentoFormatada, // Use o nome da sua coluna
-      servico,
+       data: dataAgendamentoFormatada, // Use o nome da sua coluna
       status,
       observacoes,
       dataCriacao, // Coluna para registrar quando o agendamento foi criado

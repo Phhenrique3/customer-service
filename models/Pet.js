@@ -10,7 +10,7 @@ class Pet {
 
   static async listaPorCliente(cliente_id) {
     try {
-      const sql = "SELECT id, nome FROM Pets WHERE cliente_id = ?";
+      const sql = "SELECT id, nome, raca FROM Pets WHERE cliente_id = ?";
       const [rows] = await conexao.query(sql, [cliente_id]);
       return rows;
     } catch (erro) {
