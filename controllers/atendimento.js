@@ -1,36 +1,44 @@
-const atendimentos = require("../models/atendimentos");
+const atendimentosModel = require("../models/atendimentos");
 
-module.exports = (app) => {
-  app.get("/atendimentos", (req, res) => {
-    atendimentos.lista(res);
-    console.log("Listando atendimentos");
-  });
+// GET todos
+const lista = (req, res) => {
+  atendimentosModel.lista(res);
+  console.log("Listando atendimentos");
+};
 
-  app.get("/atendimentos/:id", (req, res) => {
-    const id = parseInt(req.params.id);
-    atendimentos.buscaPorId(id, res);
-    console.log("Buscando atendimentos com id: " + id)
-  });
+// GET por ID
+const buscaPorId = (req, res) => {
+  const id = parseInt(req.params.id);
+  atendimentosModel.buscaPorId(id, res);
+  console.log("Buscando atendimento com id: " + id);
+};
 
-  app.post("/atendimentos", (req, res) => {
-    const dados = req.body;
+// POST
+const adiciona = (req, res) => {
+  const dados = req.body;
+  atendimentosModel.adiciona(dados, res);
+  console.log("Adicionando novo atendimento");
+};
 
-    atendimentos.adiciona(dados, res);
-    console.log(atendimentos);
-  });
+// PATCH
+const altera = (req, res) => {
+  const id = parseInt(req.params.id);
+  const valores = req.body;
+  atendimentosModel.altera(id, valores, res);
+  console.log("Atualizando atendimento com id: " + id);
+};
 
-  app.patch("/atendimentos/:id", (req, res) => {
-    const id = parseInt(req.params.id);
-    const valores = req.body;
-    atendimentos.altera(id, valores, res);
-  });
+// DELETE
+const deleta = (req, res) => {
+  const id = parseInt(req.params.id);
+  atendimentosModel.deleta(id, res);
+  console.log("Deletando atendimento com id: " + id);
+};
 
-  app.delete("/atendimentos/:id",
-    (req, res) => {
-      const id = parseInt(req.params.id);
-      console.log("Deletando atendimento com id: " + id);
-    
-      atendimentos.deleta(id, res); // Só chama o método, não manda mais resposta aqui.
-    });
-    
+module.exports = {
+  lista,
+  buscaPorId,
+  adiciona,
+  altera,
+  deleta,
 };
