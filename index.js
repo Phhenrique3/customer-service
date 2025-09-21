@@ -14,20 +14,20 @@ async function start() {
   try {
     await Tabelas.init(conexao);
 
-    const cadastroCliente = require("./controllers/cadastroCliente");
-    const servico = require("./controllers/servico");
+    const cadastroCliente = require("./routes/cadastro");
+    const servico = require("./controllers/servicoController");
     const loginRoutes = require("./routes/login"); // <- router
     const atendimento = require("./routes/atendimentos");
-    const pets = require("./controllers/pets");
+    const pets = require("./controllers/petsContoller");
 
     // controllers que recebem app
-    cadastroCliente(app);
     servico(app);
     pets(app);
 
     // routes que já são routers
     app.use("/", loginRoutes);
     app.use("/",atendimento)
+    app.use("/" , cadastroCliente)
 
     app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
   } catch (error) {

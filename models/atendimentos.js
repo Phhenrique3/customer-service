@@ -5,11 +5,10 @@ class Atendimento {
   // Adiciona atendimento (versão ajustada)
   async adiciona(novoAtendimento, res) {
     // 1. Desestruturar os campos recebidos do front-end
-    const { cliente_id, pet_id, data, observacoes } =
-      novoAtendimento;
+    const { cliente_id, pet_id, data, observacoes } = novoAtendimento;
 
     // 2. Validação dos campos obrigatórios
-    if (!cliente_id || !pet_id || !data ) {
+    if (!cliente_id || !pet_id || !data) {
       return res
         .status(400)
         .json({ erro: "Campos obrigatórios não foram preenchidos." });
@@ -25,7 +24,7 @@ class Atendimento {
     const atendimentoParaSalvar = {
       cliente_id: Number(cliente_id), // Garante que seja um número
       pet_id: Number(pet_id), // Garante que seja um número
-       data: dataAgendamentoFormatada, // Use o nome da sua coluna
+      data: dataAgendamentoFormatada, // Use o nome da sua coluna
       observacoes,
       dataCriacao, // Coluna para registrar quando o agendamento foi criado
     };
@@ -45,13 +44,26 @@ class Atendimento {
       });
     } catch (erro) {
       console.error("ERRO AO SALVAR AGENDAMENTO:", erro); // Log detalhado no servidor
-      res
-        .status(400)
-        .json({
-          erro: "Erro ao salvar agendamento no banco de dados.",
-          detalhes: erro.sqlMessage || erro.message,
-        });
+      res.status(400).json({
+        erro: "Erro ao salvar agendamento no banco de dados.",
+        detalhes: erro.sqlMessage || erro.message,
+      });
     }
   }
+  static async listarAgendamento() {
+  const sql = `
+    SELECT 
+      a.id AS atendimento_id,
+      a.observacoes,
+      c.id AS cliente_id,
+      c.nome,
+      c.email
+    FROM atendimentos a
+    INNER JOIN clientes c ON a.cliente_id = c.id;
+  `;
+
+  const [rows] = await conexao.query(sql);
+  return rows;
+}
 }
 module.exports = new Atendimento();

@@ -1,9 +1,21 @@
 const atendimentosModel = require("../models/atendimentos");
 
 // GET todos
-const lista = (req, res) => {
-  atendimentosModel.lista(res);
-  console.log("Listando atendimentos");
+const listarAgendamento = async (req, res) => {
+  try {
+    const agendamentos = await atendimentosModel.listarAgendamento();
+    
+    if (agendamentos.length === 0) {
+      return res
+        .status(404)
+        .json({ mensagem: "Nenhum agendamento encontrado" });
+    }
+
+    return res.status(200).json(agendamentos);
+  } catch (erro) {
+    console.error("Erro ao listar agendamentos:", erro);
+    return res.status(500).json({ erro: "Erro interno do servidor" });
+  }
 };
 
 // GET por ID
@@ -36,7 +48,7 @@ const deleta = (req, res) => {
 };
 
 module.exports = {
-  lista,
+  listarAgendamento,
   buscaPorId,
   adiciona,
   altera,

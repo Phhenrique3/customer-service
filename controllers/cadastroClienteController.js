@@ -2,8 +2,7 @@
 const CadastroCliente = require('../models/cadastroCliente');
 const bcrypt = require('bcrypt');
 
-module.exports = (app) => {
-  app.post('/api/clientes/cadastrar', async (req, res) => {
+const cadastra = async (req, res) => {
     const cliente = req.body;
     console.log('Dados recebidos:', cliente);
 
@@ -25,5 +24,7 @@ module.exports = (app) => {
       console.error('Erro ao cadastrar cliente:', error);
       return res.status(500).json({ erro: 'Erro interno do servidor' });
     }
-  });
-};
+  };
+
+
+module.exports = { cadastra }
