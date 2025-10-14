@@ -33,16 +33,38 @@ module.exports = (app) => {
   });
 
   // Rota para listar pets de um cliente
-    app.get("/api/Clientes/:id/pets", async (req, res) => {
+  app.get("/api/Clientes/:id/pets", async (req, res) => {
     const cliente_id = parseInt(req.params.id);
     console.log(`🔹 Cliente ID recebido: ${cliente_id}`);
 
     try {
-      const Pets = await Pet.listaPorCliente(cliente_id,);
+      const Pets = await Pet.listaPorCliente(cliente_id);
       res.json(Pets);
     } catch (erro) {
       console.error("ERRO AO BUSCAR PETS:", erro);
       res.status(500).json({ erro: "Erro ao buscar pets" });
+    }
+  });
+
+  // Rota para deletar um pet pelo ID
+  app.delete("/api/pets/:id", async (req, res) => {
+    const petId = parseInt(req.params.id);
+
+    if (!petId) {
+      return res.status(400).json({ erro: "ID do pet é obrigatório" });
+    }
+
+    try {
+      const resultado = await Pet.deletaPetsId(petId);
+
+      if (resultado) {
+        return res.json({ mensagem: "Pet deletado com sucesso!" });
+      } else {
+        return res.status(404).json({ erro: "Pet não encontrado" });
+      }
+    } catch (erro) {
+      console.error("Erro ao deletar pet:", erro);
+      return res.status(500).json({ erro: "Erro interno do servidor" });
     }
   });
 };
