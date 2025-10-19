@@ -19,15 +19,17 @@ async function start() {
     const loginRoutes = require("./routes/login"); // <- router
     const atendimento = require("./routes/atendimentos");
     const pets = require("./controllers/petsContoller");
+    const Admins = require("./controllers/adminsController");
 
     // controllers que recebem app
     servico(app);
     pets(app);
+    Admins(app)
 
     // routes que já são routers
     app.use("/", loginRoutes);
-    app.use("/",atendimento)
-    app.use("/" , cadastroCliente)
+    app.use("/", atendimento);
+    app.use("/", cadastroCliente);
 
     app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
   } catch (error) {

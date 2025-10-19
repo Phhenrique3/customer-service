@@ -213,6 +213,7 @@ Cria um novo atendimento.
   "status": "Agendado"
 }
 ```
+`http://localhost:3000/admins/criar. < rota POST ADMIN`
 
 ## Tecnologias Utilizadas
 
@@ -256,4 +257,6 @@ Este projeto está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` p
 ### Observações:
 - Certifique-se de ajustar os exemplos de endpoints e respostas conforme a implementação real da sua API.
 - Atualize o nome do autor e o link do repositório, se necessário.
+
+
 ```
