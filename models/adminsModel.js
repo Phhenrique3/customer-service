@@ -23,7 +23,7 @@ class AdminsModel {
 
   // Listar todos
   static async listarTodos() {
-    const sql = 'SELECT id, nome, telefone, email, tipo FROM Admins';
+    const sql = 'SELECT id, nome, telefone, email, senha, tipo FROM Admins';
     const [rows] = await conexao.query(sql);
     return rows;
   }

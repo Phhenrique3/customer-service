@@ -17,16 +17,13 @@ class Servicos {
     });
   }
 
-  lista(res) {
-    const sql = "SELECT * FROM Servicos";
-
-    conexao.query(sql, (erro, resultados) => {
-      if (erro) {
-        res.status(400).json(erro);
-      } else {
-        res.status(200).json(resultados);
-      }
-    });
+  async lista(res) {
+    try {
+      const [resultados] = await conexao.query("SELECT * FROM Servicos");
+      res.status(200).json(resultados);
+    } catch (erro) {
+      res.status(400).json(erro);
+    }
   }
 
   buscarPorId(id, res) {
