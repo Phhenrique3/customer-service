@@ -1,10 +1,10 @@
 // controllers/pets.js
-const CadastroPet = require("../models/cadastroPet");
-const Pet = require("../models/Pet");
+const CadastroPet = require("../models/cadastroPetModel");
+const Pet = require("../models/PetModel");
 
-module.exports = (app) => {
+module.exports = {
   // Rota para cadastrar um pet
-  app.post("/api/pets/cadastrar", async (req, res) => {
+  async cadastrar (req, res) {
     const pet = req.body;
     console.log("Dados do pet recebidos:", pet);
 
@@ -30,10 +30,10 @@ module.exports = (app) => {
       console.error("Erro ao cadastrar pet:", error);
       return res.status(500).json({ erro: "Erro interno do servidor" });
     }
-  });
+  },
 
   // Rota para listar pets de um cliente
-  app.get("/api/Clientes/:id/pets", async (req, res) => {
+   async listarPetId (req, res) {
     const cliente_id = parseInt(req.params.id);
     console.log(`🔹 Cliente ID recebido: ${cliente_id}`);
 
@@ -44,10 +44,10 @@ module.exports = (app) => {
       console.error("ERRO AO BUSCAR PETS:", erro);
       res.status(500).json({ erro: "Erro ao buscar pets" });
     }
-  });
+  },
 
   // Rota para deletar um pet pelo ID
-  app.delete("/api/pets/:id", async (req, res) => {
+  async deletaePetsId (req, res) {
     const petId = parseInt(req.params.id);
 
     if (!petId) {
@@ -66,5 +66,5 @@ module.exports = (app) => {
       console.error("Erro ao deletar pet:", erro);
       return res.status(500).json({ erro: "Erro interno do servidor" });
     }
-  });
+  },
 };

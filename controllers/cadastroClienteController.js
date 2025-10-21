@@ -1,5 +1,5 @@
 
-const CadastroCliente = require('../models/cadastroCliente');
+const CadastroCliente = require('../models/cadastroClienteModel');
 const bcrypt = require('bcrypt');
 
 const cadastra = async (req, res) => {

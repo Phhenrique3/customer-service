@@ -1,4 +1,4 @@
-const atendimentosModel = require("../models/atendimentos");
+const atendimentosModel = require("../models/atendimentosModel");
 
 // GET todos
 const listarAgendamento = async (req, res) => {

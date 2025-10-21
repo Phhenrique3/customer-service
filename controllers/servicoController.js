@@ -1,4 +1,4 @@
-const Servicos = require("../models/servicos");
+const Servicos = require("../models/servicosModel");
 
 module.exports = {
   // LISTAR TODOS OS SERVIÇOS

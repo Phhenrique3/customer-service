@@ -1,4 +1,4 @@
-const LoginCliente = require("../models/loginCliente");
+const LoginCliente = require("../models/loginClienteModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 

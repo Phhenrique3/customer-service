@@ -1,5 +1,5 @@
 const conexao = require("../infraestrutura/conexao.js");
-const Pet = require("./Pet.js"); // Este require está correto (procurando Pet.js na mesma pasta 'models')
+const Pet = require("./PetModel.js"); // Este require está correto (procurando Pet.js na mesma pasta 'models')
 
 class CadastroPet {
   adiciona(dadosDoPet) {
