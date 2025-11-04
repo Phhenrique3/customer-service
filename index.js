@@ -27,7 +27,7 @@ async function start() {
     app.use("/", loginRoutes);
     app.use("/", atendimento);
     app.use("/", cadastroCliente);
-    app.use("/", Admins);
+    app.use("/admins", Admins);
     app.use("/", servico);
     app.use("/",pets)
 

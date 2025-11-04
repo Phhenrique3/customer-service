@@ -23,10 +23,12 @@ class AdminsModel {
 
   // Listar todos
   static async listarTodos() {
-    const sql = 'SELECT id, nome, telefone, email, senha, tipo FROM Admins';
-    const [rows] = await conexao.query(sql);
-    return rows;
-  }
+  const sql = 'SELECT id, nome, telefone, email, senha, tipo FROM Admins'; // removido "senha"
+  const [rows] = await conexao.query(sql);
+  return rows;
+}
+
+
 }
 
 module.exports = AdminsModel;
