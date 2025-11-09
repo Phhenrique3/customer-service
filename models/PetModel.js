@@ -22,7 +22,7 @@ class Pet {
   // Adicionando delete
   static async deletaPetsId(id) {
     try {
-      const sql = "DELETE FROM Pets WHERE cliente_id = ? AND id = ?";
+      const sql = "DELETE FROM Pets WHERE id = ?";
       const [resultado] = await conexao.query(sql, [id]);
       return resultado.affectedRows > 0; // retorna true se deletou
     } catch (erro) {

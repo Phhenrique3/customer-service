@@ -49,6 +49,7 @@ module.exports = {
   // Rota para deletar um pet pelo ID
   async deletaePetsId (req, res) {
     const petId = parseInt(req.params.id);
+    console.log(`PET DELETADO COM SUCESSO: ${petId}`)
 
     if (!petId) {
       return res.status(400).json({ erro: "ID do pet é obrigatório" });

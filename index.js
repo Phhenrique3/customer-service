@@ -24,12 +24,12 @@ async function start() {
 
 
     // routes que já são routers
-    app.use("/", loginRoutes);
+    app.use("/login", loginRoutes);
     app.use("/", atendimento);
     app.use("/", cadastroCliente);
     app.use("/admins", Admins);
     app.use("/", servico);
-    app.use("/",pets)
+    app.use("/Pets",pets)
 
     app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
   } catch (error) {
