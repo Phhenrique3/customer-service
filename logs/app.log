@@ -1,0 +1,5 @@
+{"level":"info","message":"iniciando servidor","service":"api-petshop","timestamp":"17/12/2025 23:04:34"}
+{"level":"info","message":"Tabelas inciado com sucesso ","service":"api-petshop","timestamp":"17/12/2025 23:04:34"}
+{"level":"info","message":"iniciando servidor","service":"api-petshop","timestamp":"17/12/2025 23:05:47"}
+{"level":"info","message":"Tabelas inciado com sucesso ","service":"api-petshop","timestamp":"17/12/2025 23:05:47"}
+{"level":"info","message":"servidor rodando na porta >> 3000","service":"api-petshop","timestamp":"17/12/2025 23:05:47"}
